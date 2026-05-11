@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>مصحف المدينة - QPC V2 Modular</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <h1>مصحف المدينة - QPC V2 Glyph</h1>
+        <div class="subtitle">نسخة مقسّمة: HTML + CSS + JavaScript + JSON database</div>
+      </div>
+
+      <div class="controls">
+        <input id="searchInput" type="search" placeholder="بحث بالـ glyph أو Location مثل 2:255">
+        <input id="pageInput" type="number" min="1" max="604" value="1" title="رقم الصفحة">
+        <select id="surahSelect"><option value="">السورة</option></select>
+        <input id="ayahInput" type="number" min="1" placeholder="آية">
+        <select id="fontSizeSelect" title="حجم الخط">
+          <option value="22">22</option>
+          <option value="25" selected>25</option>
+          <option value="28">28</option>
+          <option value="32">32</option>
+        </select>
+        <button id="goBtn">اذهب</button>
+        <button id="searchBtn">بحث</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="page-panel">
+      <div class="page-head">
+        <span id="pageTitle">صفحة 1</span>
+        <span id="pageRange"></span>
+      </div>
+      <section id="mushafPage" class="mushaf-page" style="--page-font: QCF_P001;"></section>
+    </section>
+
+    <aside class="side-panel">
+      <h3>التحكم</h3>
+      <div class="button-row">
+        <button id="prevBtn">→ الصفحة السابقة</button>
+        <button id="nextBtn">الصفحة التالية ←</button>
+      </div>
+      <button onclick="window.print()">طباعة / PDF</button>
+      <div class="badges">
+        <span class="badge" id="pageBadge">Page 1 / 604</span>
+        <span class="badge">QPC V2 Glyph</span>
+      </div>
+      <div class="note">
+        هذه النسخة لا تحتوي على HTML ضخم. يتم تحميل بيانات الكلمات والصفحات من ملفات JSON، ويتم تحميل خط الصفحة فقط عند فتح الصفحة. إذا ظهرت الرموز مكسرة، ضع ملفات الخطوط في مجلد <code>fonts</code> أو استخدم GitHub Pages/Server.
+      </div>
+      <div id="wordMeta" class="meta"></div>
+      <div id="searchResults" class="search-results"></div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
